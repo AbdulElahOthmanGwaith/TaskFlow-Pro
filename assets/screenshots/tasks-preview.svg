@@ -1,0 +1,206 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa"/>
+      <stop offset="100%" style="stop-color:#e9ecef"/>
+    </linearGradient>
+    <filter id="shadow2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.1"/>
+    </filter>
+    <clipPath id="screenClip2">
+      <rect x="30" y="30" width="1860" height="1020" rx="16"/>
+    </clipPath>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad2)"/>
+  
+  <!-- Browser Frame -->
+  <rect x="30" y="30" width="1860" height="1020" rx="16" fill="#1a1d21"/>
+  <rect x="30" y="30" width="1860" height="1020" rx="16" fill="url(#bgGrad2)" clip-path="url(#screenClip2)"/>
+  
+  <!-- Browser Dots -->
+  <circle cx="60" y="55" r="8" fill="#ff5f57"/>
+  <circle cx="85" y="55" r="8" fill="#febc2e"/>
+  <circle cx="110" y="55" r="8" fill="#28c840"/>
+  <rect x="145" y="45" width="400" height="20" rx="10" fill="#e9ecef"/>
+  
+  <!-- Sidebar -->
+  <rect x="30" y="80" width="280" height="970" fill="white"/>
+  <rect x="309" y="80" width="1" height="970" fill="#dee2e6"/>
+  
+  <!-- Sidebar Header -->
+  <rect x="30" y="80" width="280" height="80" fill="white"/>
+  <rect x="30" y="159" width="280" height="1" fill="#dee2e6"/>
+  
+  <!-- Logo -->
+  <rect x="50" y="95" width="48" height="48" rx="12" fill="#4a90d9"/>
+  <text x="74" y="128" font-family="Arial" font-size="22" fill="white" text-anchor="middle">📋</text>
+  <text x="115" y="125" font-family="Cairo, Arial" font-size="18" font-weight="bold" fill="#4a90d9">TaskFlow Pro</text>
+  
+  <!-- Sidebar Nav -->
+  <g font-family="Cairo, Arial" font-size="13">
+    <circle cx="70" cy="217" r="20" fill="none" stroke="#dee2e6"/>
+    <text x="70" y="222" font-family="Arial" font-size="14" fill="#6c757d" text-anchor="middle">📊</text>
+    <text x="105" y="220" fill="#6c757d">لوحة التحكم</text>
+    
+    <rect x="50" y="255" width="5" height="44" rx="3" fill="#4a90d9"/>
+    <circle cx="70" cy="277" r="20" fill="#e8f2fc"/>
+    <text x="70" y="282" font-family="Arial" font-size="14" fill="#4a90d9" text-anchor="middle">📋</text>
+    <text x="105" y="280" fill="#4a90d9" font-weight="600">المهام</text>
+    
+    <circle cx="70" cy="337" r="20" fill="none" stroke="#dee2e6"/>
+    <text x="70" y="342" font-family="Arial" font-size="14" fill="#6c757d" text-anchor="middle">📁</text>
+    <text x="105" y="340" fill="#6c757d">المشاريع</text>
+    
+    <circle cx="70" cy="397" r="20" fill="none" stroke="#dee2e6"/>
+    <text x="70" y="402" font-family="Arial" font-size="14" fill="#6c757d" text-anchor="middle">📱</text>
+    <text x="105" y="400" fill="#6c757d">لوحة كانبان</text>
+    
+    <circle cx="70" cy="457" r="20" fill="none" stroke="#dee2e6"/>
+    <text x="70" y="462" font-family="Arial" font-size="14" fill="#6c757d" text-anchor="middle">📅</text>
+    <text x="105" y="460" fill="#6c757d">التقويم</text>
+    
+    <circle cx="70" cy="517" r="20" fill="none" stroke="#dee2e6"/>
+    <text x="70" y="522" font-family="Arial" font-size="14" fill="#6c757d" text-anchor="middle">👥</text>
+    <text x="105" y="520" fill="#6c757d">الفريق</text>
+    
+    <circle cx="70" cy="577" r="20" fill="none" stroke="#dee2e6"/>
+    <text x="70" y="582" font-family="Arial" font-size="14" fill="#6c757d" text-anchor="middle">📈</text>
+    <text x="105" y="580" fill="#6c757d">التحليلات</text>
+  </g>
+  
+  <!-- Header -->
+  <rect x="310" y="80" width="1580" height="80" fill="white"/>
+  <rect x="310" y="159" width="1580" height="1" fill="#dee2e6"/>
+  
+  <!-- Search -->
+  <rect x="340" y="100" width="350" height="44" rx="22" fill="#e9ecef"/>
+  <circle cx="365" cy="122" r="10" fill="none" stroke="#adb5bd" stroke-width="2"/>
+  <line x1="373" y1="130" x2="380" y2="137" stroke="#adb5bd" stroke-width="2"/>
+  <text x="385" y="128" font-family="Cairo, Arial" font-size="13" fill="#adb5bd">البحث في المهام...</text>
+  
+  <!-- Filters -->
+  <rect x="720" y="100" width="160" height="44" rx="8" fill="white" stroke="#dee2e6"/>
+  <text x="740" y="128" font-family="Cairo, Arial" font-size="13" fill="#6c757d">جميع المشاريع ▾</text>
+  
+  <rect x="900" y="100" width="140" height="44" rx="8" fill="white" stroke="#dee2e6"/>
+  <text x="920" y="128" font-family="Cairo, Arial" font-size="13" fill="#6c757d">جميع الحالات ▾</text>
+  
+  <rect x="1060" y="100" width="140" height="44" rx="8" fill="white" stroke="#dee2e6"/>
+  <text x="1080" y="128" font-family="Cairo, Arial" font-size="13" fill="#6c757d">جميع الأولويات ▾</text>
+  
+  <!-- Add Button -->
+  <rect x="1660" y="100" width="180" height="48" rx="10" fill="#4a90d9"/>
+  <text x="1700" y="133" font-family="Cairo, Arial" font-size="14" fill="white">+ إضافة مهمة</text>
+  
+  <!-- Page Title -->
+  <text x="340" y="230" font-family="Cairo, Arial" font-size="28" font-weight="bold" fill="#212529">المهام</text>
+  
+  <!-- Tasks Table Header -->
+  <rect x="340" y="260" width="1520" height="60" rx="10" fill="#e9ecef"/>
+  <g font-family="Cairo, Arial" font-size="13" font-weight="600" fill="#6c757d">
+    <text x="370" y="295">✓</text>
+    <text x="470" y="295">عنوان المهمة</text>
+    <text x="870" y="295">المشروع</text>
+    <text x="1080" y="295">الأولوية</text>
+    <text x="1260" y="295">تاريخ الاستحقاق</text>
+    <text x="1440" y="295">الحالة</text>
+    <text x="1640" y="295">الإجراءات</text>
+  </g>
+  
+  <!-- Task Rows -->
+  <g font-family="Cairo, Arial">
+    <!-- Task 1 -->
+    <rect x="340" y="340" width="1520" height="80" rx="0" fill="white"/>
+    <rect x="340" y="418" width="1520" height="1" fill="#f1f3f5"/>
+    <circle cx="370" cy="380" r="12" fill="none" stroke="#dee2e6" stroke-width="2"/>
+    <text x="470" y="365" font-size="15" font-weight="600" fill="#212529">إعداد التقرير الأسبوعي للفريق التقني</text>
+    <text x="470" y="390" font-size="12" fill="#6c757d">مراجعة التقدم وإنجازات الأسبوع الماضي</text>
+    <rect x="870" y="360" width="100" height="28" rx="14" fill="#e8f2fc"/>
+    <text x="920" y="380" font-size="12" fill="#4a90d9" text-anchor="middle">تطوير التطبيق</text>
+    <rect x="1080" y="360" width="70" height="28" rx="14" fill="#f8d7da"/>
+    <text x="1115" y="380" font-size="11" fill="#721c24" text-anchor="middle">عالية</text>
+    <text x="1260" y="380" font-size="13" fill="#6c757d">2025-01-20</text>
+    <rect x="1440" y="360" width="80" height="28" rx="14" fill="#fff3cd"/>
+    <text x="1480" y="380" font-size="11" fill="#856404" text-anchor="middle">قيد العمل</text>
+    <g fill="#6c757d">
+      <circle cx="1660" cy="380" r="12" fill="#e9ecef"/>
+      <text x="1660" y="384" font-family="Arial" font-size="12" text-anchor="middle">👁</text>
+      <circle cx="1700" cy="380" r="12" fill="#e9ecef"/>
+      <text x="1700" y="384" font-family="Arial" font-size="12" text-anchor="middle">✏</text>
+      <circle cx="1740" cy="380" r="12" fill="#f8d7da"/>
+      <text x="1740" y="384" font-family="Arial" font-size="12" fill="#dc3545" text-anchor="middle">🗑</text>
+    </g>
+    
+    <!-- Task 2 -->
+    <rect x="340" y="420" width="1520" height="80" rx="0" fill="white"/>
+    <rect x="340" y="498" width="1520" height="1" fill="#f1f3f5"/>
+    <circle cx="370" cy="460" r="12" fill="none" stroke="#4a90d9" stroke-width="2"/>
+    <text x="470" y="445" font-size="15" font-weight="600" fill="#212529">تصميم واجهة المستخدم للشاشة الرئيسية</text>
+    <text x="470" y="470" font-size="12" fill="#6c757d">إنشاء Mockups و Wireframes</text>
+    <rect x="870" y="440" width="100" height="28" rx="14" fill="#e8f2fc"/>
+    <text x="920" y="460" font-size="12" fill="#4a90d9" text-anchor="middle">تطوير التطبيق</text>
+    <rect x="1080" y="440" width="70" height="28" rx="14" fill="#fff3cd"/>
+    <text x="1115" y="460" font-size="11" fill="#856404" text-anchor="middle">متوسطة</text>
+    <text x="1260" y="460" font-size="13" fill="#6c757d">2025-01-22</text>
+    <rect x="1440" y="440" width="80" height="28" rx="14" fill="#fff3cd"/>
+    <text x="1480" y="460" font-size="11" fill="#856404" text-anchor="middle">قيد العمل</text>
+    <g fill="#6c757d">
+      <circle cx="1660" cy="460" r="12" fill="#e9ecef"/>
+      <text x="1660" y="464" font-family="Arial" font-size="12" text-anchor="middle">👁</text>
+      <circle cx="1700" cy="460" r="12" fill="#e9ecef"/>
+      <text x="1700" y="464" font-family="Arial" font-size="12" text-anchor="middle">✏</text>
+      <circle cx="1740" cy="460" r="12" fill="#f8d7da"/>
+      <text x="1740" y="464" font-family="Arial" font-size="12" fill="#dc3545" text-anchor="middle">🗑</text>
+    </g>
+    
+    <!-- Task 3 -->
+    <rect x="340" y="500" width="1520" height="80" rx="0" fill="white"/>
+    <rect x="340" y="578" width="1520" height="1" fill="#f1f3f5"/>
+    <circle cx="370" cy="540" r="12" fill="none" stroke="#dee2e6" stroke-width="2"/>
+    <text x="470" y="525" font-size="15" font-weight="600" fill="#212529">اختبار أداء التطبيق وتحليل الأخطاء</text>
+    <text x="470" y="550" font-size="12" fill="#6c757d">اختبارات الحمل والأداء</text>
+    <rect x="870" y="520" width="100" height="28" rx="14" fill="#e8f2fc"/>
+    <text x="920" y="540" font-size="12" fill="#4a90d9" text-anchor="middle">تطوير التطبيق</text>
+    <rect x="1080" y="520" width="70" height="28" rx="14" fill="#f8d7da"/>
+    <text x="1115" y="540" font-size="11" fill="#721c24" text-anchor="middle">عالية</text>
+    <text x="1260" y="540" font-size="13" fill="#6c757d">2025-01-25</text>
+    <rect x="1440" y="520" width="80" height="28" rx="14" fill="#e9ecef"/>
+    <text x="1480" y="540" font-size="11" fill="#6c757d" text-anchor="middle">قيد الانتظار</text>
+    <g fill="#6c757d">
+      <circle cx="1660" cy="540" r="12" fill="#e9ecef"/>
+      <text x="1660" y="544" font-family="Arial" font-size="12" text-anchor="middle">👁</text>
+      <circle cx="1700" cy="540" r="12" fill="#e9ecef"/>
+      <text x="1700" y="544" font-family="Arial" font-size="12" text-anchor="middle">✏</text>
+      <circle cx="1740" cy="540" r="12" fill="#f8d7da"/>
+      <text x="1740" y="544" font-family="Arial" font-size="12" fill="#dc3545" text-anchor="middle">🗑</text>
+    </g>
+    
+    <!-- Task 4 -->
+    <rect x="340" y="580" width="1520" height="80" rx="0" fill="white"/>
+    <rect x="340" y="658" width="1520" height="1" fill="#f1f3f5"/>
+    <circle cx="370" cy="620" r="12" fill="#28a745"/>
+    <text x="373" y="624" font-family="Arial" font-size="10" fill="white" text-anchor="middle">✓</text>
+    <text x="470" y="605" font-size="15" font-weight="600" fill="#6c757d" style="text-decoration: line-through;">تحديث وثائق المستخدم والتطوير</text>
+    <text x="470" y="630" font-size="12" fill="#adb5bd">توثيق جميع الميزات الجديدة</text>
+    <rect x="870" y="600" width="120" height="28" rx="14" fill="#d4edda"/>
+    <text x="930" y="620" font-size="12" fill="#28a745" text-anchor="middle">الموقع الإلكتروني</text>
+    <rect x="1080" y="600" width="70" height="28" rx="14" fill="#d4edda"/>
+    <text x="1115" y="620" font-size="11" fill="#155724" text-anchor="middle">منخفضة</text>
+    <text x="1260" y="620" font-size="13" fill="#6c757d">2025-01-18</text>
+    <rect x="1440" y="600" width="80" height="28" rx="14" fill="#d4edda"/>
+    <text x="1480" y="620" font-size="11" fill="#155724" text-anchor="middle">مكتمل</text>
+    <g fill="#6c757d">
+      <circle cx="1660" cy="620" r="12" fill="#e9ecef"/>
+      <text x="1660" y="624" font-family="Arial" font-size="12" text-anchor="middle">👁</text>
+      <circle cx="1700" cy="620" r="12" fill="#e9ecef"/>
+      <text x="1700" y="624" font-family="Arial" font-size="12" text-anchor="middle">✏</text>
+      <circle cx="1740" cy="620" r="12" fill="#f8d7da"/>
+      <text x="1740" y="624" font-family="Arial" font-size="12" fill="#dc3545" text-anchor="middle">🗑</text>
+    </g>
+  </g>
+  
+  <!-- Footer -->
+  <text x="960" y="1050" font-family="Cairo, Arial" font-size="12" fill="#adb5bd" text-anchor="middle">TaskFlow Pro v2.0 - عرض المهام</text>
+</svg>

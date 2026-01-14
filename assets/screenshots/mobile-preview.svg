@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 700" width="400" height="700">
+  <defs>
+    <linearGradient id="phoneBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F9FAFB"/>
+      <stop offset="100%" style="stop-color:#E5E7EB"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF"/>
+      <stop offset="100%" style="stop-color:#F9FAFB"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Phone Frame -->
+  <rect x="30" y="0" width="340" height="700" rx="40" fill="#1F2937"/>
+  <rect x="40" y="10" width="320" height="680" rx="32" fill="url(#phoneBg)"/>
+  
+  <!-- Notch -->
+  <rect x="130" y="20" width="140" height="28" rx="14" fill="#1F2937"/>
+  
+  <!-- Status Bar -->
+  <rect x="40" y="20" width="320" height="40" fill="transparent"/>
+  <text x="60" y="45" font-family="Arial" font-size="12" fill="#1F2937" font-weight="bold">9:41</text>
+  <circle cx="300" cy="40" r="6" fill="#1F2937"/>
+  <rect x="310" y="35" width="20" height="10" rx="2" fill="#1F2937"/>
+  
+  <!-- Header -->
+  <rect x="40" y="60" width="320" height="60" fill="white"/>
+  <circle cx="70" cy="90" r="20" fill="#4F46E5"/>
+  <text x="70" y="95" font-family="Arial" font-size="10" fill="white" text-anchor="middle" font-weight="bold">TF</text>
+  <text x="100" y="80" font-family="Arial" font-size="14" font-weight="bold" fill="#1F2937">TaskFlow</text>
+  <circle cx="340" cy="90" r="16" fill="#F3F4F6"/>
+  <text x="340" y="95" font-family="Arial" font-size="12" fill="#6B7280" text-anchor="middle">☰</text>
+  
+  <!-- Hamburger Menu Overlay -->
+  <rect x="40" y="120" width="260" height="560" fill="white" filter="url(#shadow)"/>
+  <rect x="40" y="120" width="260" height="560" fill="white" opacity="0.98"/>
+  
+  <!-- Menu Header -->
+  <rect x="40" y="120" width="260" height="100" fill="linear-gradient(135deg, #4F46E5, #3730A3)"/>
+  <circle cx="100" cy="160" r="28" fill="white"/>
+  <text x="100" y="165" font-family="Arial" font-size="12" fill="#4F46E5" text-anchor="middle" font-weight="bold">US</text>
+  <text x="100" y="200" font-family="Arial" font-size="14" fill="white" font-weight="bold">المستخدم</text>
+  <text x="100" y="220" font-family="Arial" font-size="11" fill="rgba(255,255,255,0.8)">مسؤول النظام</text>
+  
+  <!-- Menu Items -->
+  <rect x="60" y="260" width="220" height="50" rx="10" fill="#EEF2FF"/>
+  <circle cx="90" cy="285" r="14" fill="#4F46E5"/>
+  <text x="90" y="290" font-family="Arial" font-size="14" fill="white" text-anchor="middle">📊</text>
+  <text x="120" y="290" font-family="Arial" font-size="14" fill="#4F46E5" font-weight="bold">لوحة التحكم</text>
+  
+  <rect x="60" y="325" width="220" height="50" rx="10" fill="white"/>
+  <circle cx="90" cy="350" r="14" fill="none" stroke="#6B7280" stroke-width="2"/>
+  <text x="90" y="355" font-family="Arial" font-size="14" fill="#6B7280" text-anchor="middle">📁</text>
+  <text x="120" y="355" font-family="Arial" font-size="14" fill="#374151">المشاريع</text>
+  
+  <rect x="60" y="390" width="220" height="50" rx="10" fill="white"/>
+  <circle cx="90" cy="415" r="14" fill="none" stroke="#6B7280" stroke-width="2"/>
+  <text x="90" y="420" font-family="Arial" font-size="14" fill="#6B7280" text-anchor="middle">📋</text>
+  <text x="120" y="420" font-family="Arial" font-size="14" fill="#374151">المهام</text>
+  
+  <rect x="60" y="455" width="220" height="50" rx="10" fill="white"/>
+  <circle cx="90" cy="480" r="14" fill="none" stroke="#6B7280" stroke-width="2"/>
+  <text x="90" y="485" font-family="Arial" font-size="14" fill="#6B7280" text-anchor="middle">📅</text>
+  <text x="120" y="485" font-family="Arial" font-size="14" fill="#374151">التقويم</text>
+  
+  <rect x="60" y="520" width="220" height="50" rx="10" fill="white"/>
+  <circle cx="90" cy="545" r="14" fill="none" stroke="#6B7280" stroke-width="2"/>
+  <text x="90" y="550" font-family="Arial" font-size="14" fill="#6B7280" text-anchor="middle">📈</text>
+  <text x="120" y="550" font-family="Arial" font-size="14" fill="#374151">التحليلات</text>
+  
+  <rect x="60" y="585" width="220" height="50" rx="10" fill="white"/>
+  <circle cx="90" cy="610" r="14" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <text x="90" y="615" font-family="Arial" font-size="14" fill="#EF4444" text-anchor="middle">🚪</text>
+  <text x="120" y="615" font-family="Arial" font-size="14" fill="#EF4444">تسجيل الخروج</text>
+  
+  <!-- Close Button -->
+  <circle cx="280" cy="145" r="18" fill="rgba(0,0,0,0.2)"/>
+  <text x="280" y="152" font-family="Arial" font-size="16" fill="white" text-anchor="middle">✕</text>
+  
+  <!-- Mobile Responsive Label -->
+  <rect x="100" y="670" width="200" height="20" rx="10" fill="#4F46E5"/>
+  <text x="200" y="685" font-family="Arial" font-size="10" fill="white" text-anchor="middle">📱 تصميم متجاوب متقدم</text>
+</svg>

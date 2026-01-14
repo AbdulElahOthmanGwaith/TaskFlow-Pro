@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="teamBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa"/>
+      <stop offset="100%" style="stop-color:#e9ecef"/>
+    </linearGradient>
+    <filter id="teamShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.1"/>
+    </filter>
+    <clipPath id="teamClip">
+      <rect x="30" y="30" width="1860" height="1020" rx="16"/>
+    </clipPath>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#teamBg)"/>
+  
+  <!-- Browser Frame -->
+  <rect x="30" y="30" width="1860" height="1020" rx="16" fill="#1a1d21"/>
+  <rect x="30" y="30" width="1860" height="1020" rx="16" fill="url(#teamBg)" clip-path="url(#teamClip)"/>
+  
+  <!-- Browser Dots -->
+  <circle cx="60" y="55" r="8" fill="#ff5f57"/>
+  <circle cx="85" y="55" r="8" fill="#febc2e"/>
+  <circle cx="110" y="55" r="8" fill="#28c840"/>
+  <rect x="145" y="45" width="400" height="20" rx="10" fill="#e9ecef"/>
+  
+  <!-- Sidebar -->
+  <rect x="30" y="80" width="280" height="970" fill="white"/>
+  <rect x="309" y="80" width="1" height="970" fill="#dee2e6"/>
+  
+  <!-- Sidebar Header -->
+  <rect x="30" y="80" width="280" height="80" fill="white"/>
+  <rect x="30" y="159" width="280" height="1" fill="#dee2e6"/>
+  
+  <!-- Logo -->
+  <rect x="50" y="95" width="48" height="48" rx="12" fill="#4a90d9"/>
+  <text x="74" y="128" font-family="Arial" font-size="22" fill="white" text-anchor="middle">📋</text>
+  <text x="115" y="125" font-family="Cairo, Arial" font-size="18" font-weight="bold" fill="#4a90d9">TaskFlow Pro</text>
+  
+  <!-- Sidebar Nav -->
+  <g font-family="Cairo, Arial" font-size="13">
+    <circle cx="70" cy="217" r="20" fill="none" stroke="#dee2e6"/>
+    <text x="70" y="222" font-family="Arial" font-size="14" fill="#6c757d" text-anchor="middle">📊</text>
+    <text x="105" y="220" fill="#6c757d">لوحة التحكم</text>
+    
+    <circle cx="70" cy="277" r="20" fill="none" stroke="#dee2e6"/>
+    <text x="70" y="282" font-family="Arial" font-size="14" fill="#6c757d" text-anchor="middle">📋</text>
+    <text x="105" y="280" fill="#6c757d">المهام</text>
+    
+    <circle cx="70" cy="337" r="20" fill="none" stroke="#dee2e6"/>
+    <text x="70" y="342" font-family="Arial" font-size="14" fill="#6c757d" text-anchor="middle">📁</text>
+    <text x="105" y="340" fill="#6c757د">المشاريع</text>
+    
+    <circle cx="70" cy="397" r="20" fill="none" stroke="#dee2e6"/>
+    <text x="70" y="402" font-family="Arial" font-size="14" fill="#6c757d" text-anchor="middle">📱</text>
+    <text x="105" y="400" fill="#6c757d">لوحة كانبان</text>
+    
+    <circle cx="70" cy="457" r="20" fill="none" stroke="#dee2e6"/>
+    <text x="70" y="462" font-family="Arial" font-size="14" fill="#6c757d" text-anchor="middle">📅</text>
+    <text x="105" y="460" fill="#6c757d">التقويم</text>
+    
+    <rect x="50" y="495" width="5" height="44" rx="3" fill="#4a90d9"/>
+    <circle cx="70" cy="517" r="20" fill="#e8f2fc"/>
+    <text x="70" y="522" font-family="Arial" font-size="14" fill="#4a90d9" text-anchor="middle">👥</text>
+    <text x="105" y="520" fill="#4a90d9" font-weight="600">الفريق</text>
+  </g>
+  
+  <!-- Header -->
+  <rect x="310" y="80" width="1580" height="80" fill="white"/>
+  <rect x="310" y="159" width="1580" height="1" fill="#dee2e6"/>
+  
+  <!-- Page Title -->
+  <text x="340" y="130" font-family="Cairo, Arial" font-size="28" font-weight="bold" fill="#212529">الفريق</text>
+  
+  <!-- Invite Button -->
+  <rect x="1640" y="95" width="180" height="48" rx="10" fill="#4a90d9"/>
+  <text x="1680" y="128" font-family="Cairo, Arial" font-size="14" fill="white">+ دعوة عضو</text>
+  
+  <!-- Team Stats -->
+  <rect x="340" y="200" width="1520" height="80" rx="12" fill="white" filter="url(#teamShadow)"/>
+  <g font-family="Cairo, Arial">
+    <text x="400" y="240" font-size="14" fill="#6c757d">إجمالي الأعضاء</text>
+    <text x="400" y="260" font-size="28" font-weight="bold" fill="#212529">8</text>
+    <text x="700" y="240" font-size="14" fill="#6c757d">نشط الآن</text>
+    <text x="700" y="260" font-size="28" font-weight="bold" fill="#28a745">6</text>
+    <text x="1000" y="240" font-size="14" fill="#6c757d">مهام هذا الأسبوع</text>
+    <text x="1000" y="260" font-size="28" font-weight="bold" fill="#4a90d9">24</text>
+    <text x="1300" y="240" font-size="14" fill="#6c757d">نسبة الإنجاز</text>
+    <text x="1300" y="260" font-size="28" font-weight="bold" fill="#9333ea">78%</text>
+  </g>
+  
+  <!-- Team Members Grid -->
+  <g font-family="Cairo, Arial">
+    <!-- Member 1 -->
+    <rect x="340" y="310" width="350" height="200" rx="14" fill="white" filter="url(#teamShadow)"/>
+    <circle cx="515" cy="380" r="50" fill="#e8f2fc"/>
+    <circle cx="515" cy="380" r="40" fill="#4a90d9"/>
+    <text x="515" y="385" font-family="Arial" font-size="24" fill="white" text-anchor="middle">أ</text>
+    <text x="515" y="465" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">أحمد محمد</text>
+    <text x="515" y="490" font-size="14" fill="#4a90d9" text-anchor="middle">مطور أمامي</text>
+    <rect x="360" y="430" width="80" height="26" rx="13" fill="#d4edda"/>
+    <text x="400" y="448" font-size="11" fill="#155724" text-anchor="middle">45 مكتمل</text>
+    <rect x="450" y="430" width="60" height="26" rx="13" fill="#fff3cd"/>
+    <text x="480" y="448" font-size="11" fill="#856404" text-anchor="middle">3 قيد</text>
+    
+    <!-- Member 2 -->
+    <rect x="730" y="310" width="350" height="200" rx="14" fill="white" filter="url(#teamShadow)"/>
+    <circle cx="905" cy="380" r="50" fill="#ffe5d0"/>
+    <circle cx="905" cy="380" r="40" fill="#fd7e14"/>
+    <text x="905" y="385" font-family="Arial" font-size="24" fill="white" text-anchor="middle">س</text>
+    <text x="905" y="465" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">سارة علي</text>
+    <text x="905" y="490" font-size="14" fill="#fd7e14" text-anchor="middle">مصممة</text>
+    <rect x="750" y="430" width="80" height="26" rx="13" fill="#d4edda"/>
+    <text x="790" y="448" font-size="11" fill="#155724" text-anchor="middle">38 مكتمل</text>
+    <rect x="840" y="430" width="60" height="26" rx="13" fill="#fff3cd"/>
+    <text x="870" y="448" font-size="11" fill="#856404" text-anchor="middle">5 قيد</text>
+    
+    <!-- Member 3 -->
+    <rect x="1120" y="310" width="350" height="200" rx="14" fill="white" filter="url(#teamShadow)"/>
+    <circle cx="1295" cy="380" r="50" fill="#d4edda"/>
+    <circle cx="1295" cy="380" r="40" fill="#28a745"/>
+    <text x="1295" y="385" font-family="Arial" font-size="24" fill="white" text-anchor="middle">خ</text>
+    <text x="1295" y="465" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">خالد عمر</text>
+    <text x="1295" y="490" font-size="14" fill="#28a745" text-anchor="middle">مطور خلفي</text>
+    <rect x="1140" y="430" width="80" height="26" rx="13" fill="#d4edda"/>
+    <text x="1180" y="448" font-size="11" fill="#155724" text-anchor="middle">52 مكتمل</text>
+    <rect x="1230" y="430" width="60" height="26" rx="13" fill="#e9ecef"/>
+    <text x="1260" y="448" font-size="11" fill="#6c757d" text-anchor="middle">2 قيد</text>
+    
+    <!-- Member 4 -->
+    <rect x="1510" y="310" width="350" height="200" rx="14" fill="white" filter="url(#teamShadow)"/>
+    <circle cx="1685" cy="380" r="50" fill="#f3e8ff"/>
+    <circle cx="1685" cy="380" r="40" fill="#9333ea"/>
+    <text x="1685" y="385" font-family="Arial" font-size="24" fill="white" text-anchor="middle">ن</text>
+    <text x="1685" y="465" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">نورة سعيد</text>
+    <text x="1685" y="490" font-size="14" fill="#9333ea" text-anchor="middle">مديرة مشروع</text>
+    <rect x="1530" y="430" width="80" height="26" rx="13" fill="#d4edda"/>
+    <text x="1570" y="448" font-size="11" fill="#155724" text-anchor="middle">31 مكتمل</text>
+    <rect x="1620" y="430" width="60" height="26" rx="13" fill="#fff3cd"/>
+    <text x="1650" y="448" font-size="11" fill="#856404" text-anchor="middle">4 قيد</text>
+    
+    <!-- Member 5 -->
+    <rect x="340" y="540" width="350" height="200" rx="14" fill="white" filter="url(#teamShadow)"/>
+    <circle cx="515" cy="610" r="50" fill="#ffe5d0"/>
+    <circle cx="515" cy="610" r="40" fill="#dc3545"/>
+    <text x="515" y="615" font-family="Arial" font-size="24" fill="white" text-anchor="middle">ع</text>
+    <text x="515" y="695" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">عمر فهد</text>
+    <text x="515" y="720" font-size="14" fill="#dc3545" text-anchor="middle">محلل بيانات</text>
+    <rect x="360" y="660" width="80" height="26" rx="13" fill="#d4edda"/>
+    <text x="400" y="678" font-size="11" fill="#155724" text-anchor="middle">28 مكتمل</text>
+    <rect x="450" y="660" width="60" height="26" rx="13" fill="#e9ecef"/>
+    <text x="480" y="678" font-size="11" fill="#6c757d" text-anchor="middle">1 قيد</text>
+    
+    <!-- Member 6 -->
+    <rect x="730" y="540" width="350" height="200" rx="14" fill="white" filter="url(#teamShadow)"/>
+    <circle cx="905" cy="610" r="50" fill="#e8f2fc"/>
+    <circle cx="905" cy="610" r="40" fill="#17a2b8"/>
+    <text x="905" y="615" font-family="Arial" font-size="24" fill="white" text-anchor="middle">ل</text>
+    <text x="905" y="695" font-size="18" font-weight="bold" fill="#212529" text-anchor="middle">لينا حسن</text>
+    <text x="905" y="720" font-size="14" fill="#17a2b8" text-anchor="middle">كاتبة محتوى</text>
+    <rect x="750" y="660" width="80" height="26" rx="13" fill="#d4edda"/>
+    <text x="790" y="678" font-size="11" fill="#155724" text-anchor="middle">22 مكتمل</text>
+    <rect x="840" y="660" width="60" height="26" rx="13" fill="#fff3cd"/>
+    <text x="870" y="678" font-size="11" fill="#856404" text-anchor="middle">3 قيد</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="960" y="1050" font-family="Cairo, Arial" font-size="12" fill="#adb5bd" text-anchor="middle">TaskFlow Pro v2.0 - إدارة الفريق</text>
+</svg>

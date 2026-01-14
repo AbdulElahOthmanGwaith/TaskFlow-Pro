@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow Pro - إدارة المهام الاحترافية</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+</head>
+<body>
+    <!-- شاشة التحميل -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2>TaskFlow Pro</h2>
+            <p>جاري تحميل التطبيق...</p>
+        </div>
+    </div>
+
+    <!-- صفحة تسجيل الدخول -->
+    <div id="login-page" class="login-page">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="logo">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h1>TaskFlow Pro</h1>
+                <p>إدارة المهام الاحترافية</p>
+            </div>
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="login-email">البريد الإلكتروني</label>
+                    <input type="email" id="login-email" placeholder="أدخل بريدك الإلكتروني" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">كلمة المرور</label>
+                    <input type="password" id="login-password" placeholder="أدخل كلمة المرور" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span>تسجيل الدخول</span>
+                    <i class="fas fa-sign-in-alt"></i>
+                </button>
+                <div class="login-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember-me">
+                        <span>تذكرني</span>
+                    </label>
+                    <a href="#" class="forgot-password">نسيت كلمة المرور؟</a>
+                </div>
+                <div class="divider">
+                    <span>أو</span>
+                </div>
+                <button type="button" class="btn btn-social btn-google" id="google-login">
+                    <i class="fab fa-google"></i>
+                    <span>تسجيل الدخول باستخدام Google</span>
+                </button>
+                <button type="button" class="btn btn-social btn-github" id="github-login">
+                    <i class="fab fa-github"></i>
+                    <span>تسجيل الدخول باستخدام GitHub</span>
+                </button>
+                <p class="signup-link">ليس لديك حساب؟ <a href="#" id="show-register">إنشاء حساب جديد</a></p>
+            </form>
+
+            <!-- نموذج التسجيل -->
+            <form id="register-form" class="login-form hidden">
+                <div class="form-group">
+                    <label for="register-name">الاسم الكامل</label>
+                    <input type="text" id="register-name" placeholder="أدخل اسمك الكامل" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">البريد الإلكتروني</label>
+                    <input type="email" id="register-email" placeholder="أدخل بريدك الإلكتروني" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">كلمة المرور</label>
+                    <input type="password" id="register-password" placeholder="أنشئ كلمة مرور" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm">تأكيد كلمة المرور</label>
+                    <input type="password" id="register-confirm" placeholder="أعد إدخال كلمة المرور" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <span>إنشاء حساب</span>
+                    <i class="fas fa-user-plus"></i>
+                </button>
+                <p class="signup-link">لديك حساب بالفعل؟ <a href="#" id="show-login">تسجيل الدخول</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- التطبيق الرئيسي -->
+    <div id="main-app" class="main-app hidden">
+        <!-- الشريط الجانبي -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-clipboard-check"></i>
+                    <span>TaskFlow Pro</span>
+                </div>
+                <button class="sidebar-toggle" id="sidebar-toggle">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active" data-view="dashboard">
+                        <a href="#dashboard">
+                            <i class="fas fa-home"></i>
+                            <span>لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li data-view="tasks">
+                        <a href="#tasks">
+                            <i class="fas fa-tasks"></i>
+                            <span>المهام</span>
+                        </a>
+                    </li>
+                    <li data-view="projects">
+                        <a href="#projects">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>المشاريع</span>
+                        </a>
+                    </li>
+                    <li data-view="kanban">
+                        <a href="#kanban">
+                            <i class="fas fa-columns"></i>
+                            <span>لوحة كانبان</span>
+                        </a>
+                    </li>
+                    <li data-view="calendar">
+                        <a href="#calendar">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>التقويم</span>
+                        </a>
+                    </li>
+                    <li data-view="team">
+                        <a href="#team">
+                            <i class="fas fa-users"></i>
+                            <span>الفريق</span>
+                        </a>
+                    </li>
+                    <li data-view="analytics">
+                        <a href="#analytics">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>التحليلات</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <ul>
+                    <li data-view="settings">
+                        <a href="#settings">
+                            <i class="fas fa-cog"></i>
+                            <span>الإعدادات</span>
+                        </a>
+                    </li>
+                    <li id="logout-btn">
+                        <a href="#">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>تسجيل الخروج</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- المحتوى الرئيسي -->
+        <main class="main-content">
+            <!-- الرأس العلوي -->
+            <header class="main-header">
+                <div class="header-right">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="البحث في المهام والمشاريع..." id="global-search">
+                    </div>
+                </div>
+                <div class="header-left">
+                    <div class="header-actions">
+                        <button class="action-btn" id="quick-add" title="إضافة سريعة">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <div class="notifications-dropdown">
+                            <button class="action-btn" id="notifications-btn" title="الإشعارات">
+                                <i class="fas fa-bell"></i>
+                                <span class="badge" id="notification-count">3</span>
+                            </button>
+                            <div class="dropdown-menu notifications-menu" id="notifications-menu">
+                                <div class="dropdown-header">
+                                    <h4>الإشعارات</h4>
+                                    <button class="mark-all-read">تعليم الكل كمقروء</button>
+                                </div>
+                                <div class="notifications-list" id="notifications-list">
+                                    <!-- الإشعارات سيتم إضافتها هنا -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-dropdown">
+                            <button class="user-btn" id="user-btn">
+                                <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%234a90d9' width='100' height='100'/><text x='50' y='60' text-anchor='middle' fill='white' font-size='50'>م</text></svg>" alt="المستخدم" class="user-avatar">
+                                <span class="user-name" id="user-name">مستخدم جديد</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <div class="dropdown-menu user-menu" id="user-menu">
+                                <a href="#" data-action="profile">
+                                    <i class="fas fa-user"></i>
+                                    <span>الملف الشخصي</span>
+                                </a>
+                                <a href="#" data-action="settings">
+                                    <i class="fas fa-cog"></i>
+                                    <span>الإعدادات</span>
+                                </a>
+                                <div class="divider"></div>
+                                <a href="#" data-action="logout">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>تسجيل الخروج</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- منطقة المحتوى -->
+            <div class="content-area">
+                <!-- لوحة التحكم -->
+                <section id="dashboard-view" class="view active">
+                    <div class="view-header">
+                        <h1>لوحة التحكم</h1>
+                        <div class="view-actions">
+                            <button class="btn btn-primary" id="new-task-btn">
+                                <i class="fas fa-plus"></i>
+                                <span>مهمة جديدة</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-tasks">0</h3>
+                                <p>إجمالي المهام</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon green">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="completed-tasks">0</h3>
+                                <p>المهام المُنجزة</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon orange">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="pending-tasks">0</h3>
+                                <p>المهام المعلقة</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon purple">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3 id="total-projects">0</h3>
+                                <p>المشاريع النشطة</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="dashboard-main">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-chart-line"></i> تقدم المهام</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="progress-chart">
+                                        <div class="progress-bar-container">
+                                            <div class="progress-label">
+                                                <span>نسبة الإنجاز</span>
+                                                <span id="completion-percentage">0%</span>
+                                            </div>
+                                            <div class="progress-bar">
+                                                <div class="progress-fill" id="progress-fill"></div>
+                                            </div>
+                                        </div>
+                                        <div class="chart-legend">
+                                            <div class="legend-item">
+                                                <span class="legend-color completed"></span>
+                                                <span>مكتمل</span>
+                                            </div>
+                                            <div class="legend-item">
+                                                <span class="legend-color in-progress"></span>
+                                                <span>قيد العمل</span>
+                                            </div>
+                                            <div class="legend-item">
+                                                <span class="legend-color pending"></span>
+                                                <span>قيد الانتظار</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-star"></i> المهام المميزة</h3>
+                                    <a href="#" class="view-all" data-view="tasks">عرض الكل</a>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="featured-tasks" id="featured-tasks">
+                                        <!-- المهام المميزة سيتم إضافتها هنا -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-sidebar">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-calendar-check"></i> مهام اليوم</h3>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="today-tasks" id="today-tasks">
+                                        <!-- مهام اليوم سيتم إضافتها هنا -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-chart-pie"></i> توزيع المهام</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="tasks-distribution">
+                                        <div class="distribution-item">
+                                            <div class="distribution-info">
+                                                <span>عالية الأولوية</span>
+                                                <span id="high-priority-count">0</span>
+                                            </div>
+                                            <div class="distribution-bar">
+                                                <div class="distribution-fill high" id="high-priority-bar"></div>
+                                            </div>
+                                        </div>
+                                        <div class="distribution-item">
+                                            <div class="distribution-info">
+                                                <span>متوسطة الأولوية</span>
+                                                <span id="medium-priority-count">0</span>
+                                            </div>
+                                            <div class="distribution-bar">
+                                                <div class="distribution-fill medium" id="medium-priority-bar"></div>
+                                            </div>
+                                        </div>
+                                        <div class="distribution-item">
+                                            <div class="distribution-info">
+                                                <span>منخفضة الأولوية</span>
+                                                <span id="low-priority-count">0</span>
+                                            </div>
+                                            <div class="distribution-bar">
+                                                <div class="distribution-fill low" id="low-priority-bar"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- عرض المهام -->
+                <section id="tasks-view" class="view">
+                    <div class="view-header">
+                        <h1>المهام</h1>
+                        <div class="view-actions">
+                            <div class="filter-group">
+                                <select id="task-filter-project">
+                                    <option value="all">جميع المشاريع</option>
+                                </select>
+                                <select id="task-filter-status">
+                                    <option value="all">جميع الحالات</option>
+                                    <option value="pending">قيد الانتظار</option>
+                                    <option value="in-progress">قيد العمل</option>
+                                    <option value="completed">مكتمل</option>
+                                </select>
+                                <select id="task-filter-priority">
+                                    <option value="all">جميع الأولويات</option>
+                                    <option value="high">عالية</option>
+                                    <option value="medium">متوسطة</option>
+                                    <option value="low">منخفضة</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" id="add-task-btn">
+                                <i class="fas fa-plus"></i>
+                                <span>إضافة مهمة</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="tasks-container">
+                        <div class="tasks-header">
+                            <div class="task-checkbox"></div>
+                            <div class="task-title">عنوان المهمة</div>
+                            <div class="task-project">المشروع</div>
+                            <div class="task-priority">الأولوية</div>
+                            <div class="task-due-date">تاريخ الاستحقاق</div>
+                            <div class="task-status">الحالة</div>
+                            <div class="task-actions">الإجراءات</div>
+                        </div>
+                        <div class="tasks-list" id="tasks-list">
+                            <!-- المهام سيتم إضافتها هنا -->
+                        </div>
+                        <div class="empty-state" id="empty-tasks">
+                            <i class="fas fa-tasks"></i>
+                            <h3>لا توجد مهام حالياً</h3>
+                            <p>ابدأ بإضافة مهمتك الأولى</p>
+                            <button class="btn btn-primary" id="empty-add-task">
+                                <i class="fas fa-plus"></i>
+                                <span>إضافة مهمة</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- عرض المشاريع -->
+                <section id="projects-view" class="view">
+                    <div class="view-header">
+                        <h1>المشاريع</h1>
+                        <div class="view-actions">
+                            <button class="btn btn-primary" id="add-project-btn">
+                                <i class="fas fa-plus"></i>
+                                <span>مشروع جديد</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="projects-grid" id="projects-grid">
+                        <!-- المشاريع سيتم إضافتها هنا -->
+                    </div>
+                    <div class="empty-state" id="empty-projects">
+                        <i class="fas fa-project-diagram"></i>
+                        <h3>لا توجد مشاريع حالياً</h3>
+                        <p>أنشئ مشروعك الأول لبدء العمل</p>
+                        <button class="btn btn-primary" id="empty-add-project">
+                            <i class="fas fa-plus"></i>
+                            <span>إنشاء مشروع</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- عرض لوحة كانبان -->
+                <section id="kanban-view" class="view">
+                    <div class="view-header">
+                        <h1>لوحة كانبان</h1>
+                        <div class="view-actions">
+                            <select id="kanban-project-filter">
+                                <option value="all">جميع المشاريع</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="kanban-board" id="kanban-board">
+                        <div class="kanban-column" data-status="pending">
+                            <div class="column-header">
+                                <h3><i class="fas fa-clock"></i> قيد الانتظار</h3>
+                                <span class="task-count">0</span>
+                            </div>
+                            <div class="column-content" id="kanban-pending">
+                                <!-- المهام سيتم إضافتها هنا -->
+                            </div>
+                            <button class="add-task-to-column" data-status="pending">
+                                <i class="fas fa-plus"></i>
+                                <span>إضافة مهمة</span>
+                            </button>
+                        </div>
+                        <div class="kanban-column" data-status="in-progress">
+                            <div class="column-header">
+                                <h3><i class="fas fa-spinner"></i> قيد العمل</h3>
+                                <span class="task-count">0</span>
+                            </div>
+                            <div class="column-content" id="kanban-in-progress">
+                                <!-- المهام سيتم إضافتها هنا -->
+                            </div>
+                            <button class="add-task-to-column" data-status="in-progress">
+                                <i class="fas fa-plus"></i>
+                                <span>إضافة مهمة</span>
+                            </button>
+                        </div>
+                        <div class="kanban-column" data-status="completed">
+                            <div class="column-header">
+                                <h3><i class="fas fa-check-circle"></i> مكتمل</h3>
+                                <span class="task-count">0</span>
+                            </div>
+                            <div class="column-content" id="kanban-completed">
+                                <!-- المهام سيتم إضافتها هنا -->
+                            </div>
+                            <button class="add-task-to-column" data-status="completed">
+                                <i class="fas fa-plus"></i>
+                                <span>إضافة مهمة</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- عرض التقويم -->
+                <section id="calendar-view" class="view">
+                    <div class="view-header">
+                        <h1>التقويم</h1>
+                        <div class="view-actions">
+                            <div class="calendar-nav">
+                                <button class="btn btn-icon" id="calendar-prev">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                                <h3 id="current-month">يناير 2025</h3>
+                                <button class="btn btn-icon" id="calendar-next">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                            </div>
+                            <button class="btn btn-secondary" id="today-btn">اليوم</button>
+                        </div>
+                    </div>
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <div class="day-name">السبت</div>
+                            <div class="day-name">الأحد</div>
+                            <div class="day-name">الإثنين</div>
+                            <div class="day-name">الثلاثاء</div>
+                            <div class="day-name">الأربعاء</div>
+                            <div class="day-name">الخميس</div>
+                            <div class="day-name">الجمعة</div>
+                        </div>
+                        <div class="calendar-grid" id="calendar-grid">
+                            <!-- أيام التقويم سيتم إضافتها هنا -->
+                        </div>
+                    </div>
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <span class="legend-dot high"></span>
+                            <span>عالية الأولوية</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot medium"></span>
+                            <span>متوسطة الأولوية</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot low"></span>
+                            <span>منخفضة الأولوية</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-dot completed"></span>
+                            <span>مكتمل</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- عرض الفريق -->
+                <section id="team-view" class="view">
+                    <div class="view-header">
+                        <h1>الفريق</h1>
+                        <div class="view-actions">
+                            <button class="btn btn-primary" id="invite-member-btn">
+                                <i class="fas fa-user-plus"></i>
+                                <span>دعوة عضو</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="team-grid" id="team-grid">
+                        <!-- أعضاء الفريق سيتم إضافتهم هنا -->
+                    </div>
+                    <div class="empty-state" id="empty-team">
+                        <i class="fas fa-users"></i>
+                        <h3>لا يوجد أعضاء في الفريق</h3>
+                        <p>ابدأ بدعوة أعضاء للفريق</p>
+                        <button class="btn btn-primary" id="empty-invite">
+                            <i class="fas fa-user-plus"></i>
+                            <span>دعوة عضو</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- عرض التحليلات -->
+                <section id="analytics-view" class="view">
+                    <div class="view-header">
+                        <h1>التحليلات</h1>
+                        <div class="view-actions">
+                            <select id="analytics-period">
+                                <option value="week">آخر أسبوع</option>
+                                <option value="month" selected>آخر شهر</option>
+                                <option value="year">آخر سنة</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="analytics-grid">
+                        <div class="analytics-card large">
+                            <div class="card-header">
+                                <h3><i class="fas fa-chart-bar"></i> أداء المهام</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="tasks-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-chart-pie"></i> توزيع الأولويات</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <canvas id="priority-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-check-double"></i> معدل الإنجاز</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="completion-rate">
+                                    <div class="rate-circle">
+                                        <svg viewBox="0 0 100 100">
+                                            <circle class="bg" cx="50" cy="50" r="45"></circle>
+                                            <circle class="progress" cx="50" cy="50" r="45" id="completion-circle"></circle>
+                                        </svg>
+                                        <div class="rate-value">
+                                            <span id="completion-rate-value">0</span>%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-trophy"></i> أعلى الأعضاء إنتاجية</h3>
+                            </div>
+                            <div class="card-body">
+                                <ul class="top-performers" id="top-performers">
+                                    <!-- سيتم إضافة أفضل الأعضاء هنا -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- عرض الإعدادات -->
+                <section id="settings-view" class="view">
+                    <div class="view-header">
+                        <h1>الإعدادات</h1>
+                    </div>
+                    <div class="settings-container">
+                        <div class="settings-sidebar">
+                            <ul>
+                                <li class="active" data-settings="profile">
+                                    <a href="#">
+                                        <i class="fas fa-user"></i>
+                                        <span>الملف الشخصي</span>
+                                    </a>
+                                </li>
+                                <li data-settings="notifications">
+                                    <a href="#">
+                                        <i class="fas fa-bell"></i>
+                                        <span>الإشعارات</span>
+                                    </a>
+                                </li>
+                                <li data-settings="appearance">
+                                    <a href="#">
+                                        <i class="fas fa-palette"></i>
+                                        <span>المظهر</span>
+                                    </a>
+                                </li>
+                                <li data-settings="security">
+                                    <a href="#">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>الأمان</span>
+                                    </a>
+                                </li>
+                                <li data-settings="language">
+                                    <a href="#">
+                                        <i class="fas fa-language"></i>
+                                        <span>اللغة</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="settings-content">
+                            <!-- إعدادات الملف الشخصي -->
+                            <div class="settings-panel active" id="settings-profile">
+                                <h2>الملف الشخصي</h2>
+                                <form id="profile-form">
+                                    <div class="form-group">
+                                        <label for="settings-name">الاسم</label>
+                                        <input type="text" id="settings-name" placeholder="أدخل اسمك">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="settings-email">البريد الإلكتروني</label>
+                                        <input type="email" id="settings-email" placeholder="أدخل بريدك الإلكتروني">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="settings-phone">رقم الهاتف</label>
+                                        <input type="tel" id="settings-phone" placeholder="أدخل رقم هاتفك">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="settings-bio">نبذة عنك</label>
+                                        <textarea id="settings-bio" placeholder="اكتب نبذة قصيرة عن نفسك"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i>
+                                        <span>حفظ التغييرات</span>
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- إعدادات الإشعارات -->
+                            <div class="settings-panel" id="settings-notifications">
+                                <h2>الإشعارات</h2>
+                                <div class="settings-options">
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h4>إشعارات المهام الجديدة</h4>
+                                            <p>تلقي إشعارات عند إضافة مهام جديدة</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="notify-new-task" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h4>تذكير بمواعيد الاستحقاق</h4>
+                                            <p>تلقي تذكيرات قبل انتهاء المهام</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="notify-due-date" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h4>إشعارات التعليقات</h4>
+                                            <p>تلقي إشعارات عند إضافة تعليقات</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="notify-comments" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h4>رسائل البريد الإلكتروني</h4>
+                                            <p>تلقي ملخصات دورية عبر البريد</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="notify-email">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- إعدادات المظهر -->
+                            <div class="settings-panel" id="settings-appearance">
+                                <h2>المظهر</h2>
+                                <div class="settings-options">
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h4>الوضع الداكن</h4>
+                                            <p>تفعيل المظهر الداكن للتطبيق</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="dark-mode-toggle">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h4>اللون الرئيسي</h4>
+                                            <p>اختر لون التطبيق المفضل لديك</p>
+                                        </div>
+                                        <div class="color-options">
+                                            <button class="color-option blue" data-color="blue"></button>
+                                            <button class="color-option green" data-color="green"></button>
+                                            <button class="color-option purple" data-color="purple"></button>
+                                            <button class="color-option orange" data-color="orange"></button>
+                                            <button class="color-option pink" data-color="pink"></button>
+                                        </div>
+                                    </div>
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h4>حجم الخط</h4>
+                                            <p>ضبط حجم الخط في التطبيق</p>
+                                        </div>
+                                        <select id="font-size">
+                                            <option value="small">صغير</option>
+                                            <option value="medium" selected>متوسط</option>
+                                            <option value="large">كبير</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- إعدادات الأمان -->
+                            <div class="settings-panel" id="settings-security">
+                                <h2>الأمان</h2>
+                                <form id="security-form">
+                                    <div class="form-group">
+                                        <label for="current-password">كلمة المرور الحالية</label>
+                                        <input type="password" id="current-password" placeholder="أدخل كلمة المرور الحالية">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new-password">كلمة المرور الجديدة</label>
+                                        <input type="password" id="new-password" placeholder="أدخل كلمة المرور الجديدة">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="confirm-new-password">تأكيد كلمة المرور</label>
+                                        <input type="password" id="confirm-new-password" placeholder="أعد إدخال كلمة المرور">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-key"></i>
+                                        <span>تغيير كلمة المرور</span>
+                                    </button>
+                                </form>
+                                <div class="security-options">
+                                    <h3>خيارات إضافية</h3>
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h4>المصادقة الثنائية</h4>
+                                            <p>تفعيل المصادقة لحماية إضافية</p>
+                                        </div>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="two-factor">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- إعدادات اللغة -->
+                            <div class="settings-panel" id="settings-language">
+                                <h2>اللغة</h2>
+                                <div class="settings-options">
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h4>لغة الواجهة</h4>
+                                            <p>اختر لغة التطبيق</p>
+                                        </div>
+                                        <select id="interface-language">
+                                            <option value="ar" selected>العربية</option>
+                                            <option value="en">English</option>
+                                            <option value="tr">Türkçe</option>
+                                        </select>
+                                    </div>
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h4>اتجاه الكتابة</h4>
+                                            <p>اتجاه النص حسب اللغة</p>
+                                        </div>
+                                        <select id="text-direction">
+                                            <option value="rtl" selected>من اليمين لليسار</option>
+                                            <option value="ltr">من اليسار لليمين</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- النماذج المنبثقة -->
+    <!-- نموذج إضافة/تعديل المهمة -->
+    <div class="modal" id="task-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="task-modal-title">إضافة مهمة جديدة</h3>
+                <button class="modal-close" data-modal="task-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                <div class="form-group">
+                    <label for="task-title">عنوان المهمة *</label>
+                    <input type="text" id="task-title" placeholder="أدخل عنوان المهمة" required>
+                </div>
+                <div class="form-group">
+                    <label for="task-description">وصف المهمة</label>
+                    <textarea id="task-description" placeholder="أدخل وصفاً تفصيلياً للمهمة"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="task-project-select">المشروع *</label>
+                        <select id="task-project-select" required>
+                            <option value="">اختر المشروع</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-priority">الأولوية *</label>
+                        <select id="task-priority" required>
+                            <option value="low">منخفضة</option>
+                            <option value="medium" selected>متوسطة</option>
+                            <option value="high">عالية</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="task-due-date">تاريخ الاستحقاق</label>
+                        <input type="date" id="task-due-date">
+                    </div>
+                    <div class="form-group">
+                        <label for="task-status">الحالة</label>
+                        <select id="task-status">
+                            <option value="pending" selected>قيد الانتظار</option>
+                            <option value="in-progress">قيد العمل</option>
+                            <option value="completed">مكتمل</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="task-featured">
+                        <span>مهمة مميزة</span>
+                    </label>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary modal-cancel" data-modal="task-modal">إلغاء</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i>
+                        <span>حفظ المهمة</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- نموذج إضافة/تعديل المشروع -->
+    <div class="modal" id="project-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="project-modal-title">إنشاء مشروع جديد</h3>
+                <button class="modal-close" data-modal="project-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="project-form">
+                <input type="hidden" id="project-id">
+                <div class="form-group">
+                    <label for="project-name">اسم المشروع *</label>
+                    <input type="text" id="project-name" placeholder="أدخل اسم المشروع" required>
+                </div>
+                <div class="form-group">
+                    <label for="project-description">وصف المشروع</label>
+                    <textarea id="project-description" placeholder="أدخل وصفاً للمشروع"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="project-color">لون المشروع</label>
+                        <input type="color" id="project-color" value="#4a90d9">
+                    </div>
+                    <div class="form-group">
+                        <label for="project-deadline">تاريخ الانتهاء</label>
+                        <input type="date" id="project-deadline">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary modal-cancel" data-modal="project-modal">إلغاء</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i>
+                        <span>حفظ المشروع</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- نموذج تفاصيل المهمة -->
+    <div class="modal" id="task-details-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3 id="task-details-title">تفاصيل المهمة</h3>
+                <button class="modal-close" data-modal="task-details-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="task-details-content" id="task-details-content">
+                <!-- تفاصيل المهمة سيتم إضافتها هنا -->
+            </div>
+        </div>
+    </div>
+
+    <!-- نموذج إضافة عضو للفريق -->
+    <div class="modal" id="invite-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>دعوة عضو جديد</h3>
+                <button class="modal-close" data-modal="invite-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="invite-form">
+                <div class="form-group">
+                    <label for="invite-email">البريد الإلكتروني</label>
+                    <input type="email" id="invite-email" placeholder="أدخل البريد الإلكتروني للدعوة" required>
+                </div>
+                <div class="form-group">
+                    <label for="invite-role">الدور</label>
+                    <select id="invite-role">
+                        <option value="member">عضو</option>
+                        <option value="admin">مسؤول</option>
+                        <option value="viewer">مشاهد</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="invite-message">رسالة اختيارية</label>
+                    <textarea id="invite-message" placeholder="اكتب رسالة مع الدعوة"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary modal-cancel" data-modal="invite-modal">إلغاء</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>إرسال الدعوة</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- إضافة سريعة للمهمة -->
+    <div class="quick-add-popup hidden" id="quick-add-popup">
+        <div class="quick-add-content">
+            <input type="text" id="quick-task-input" placeholder="أضف مهمة سريعة...">
+            <button class="btn btn-primary" id="quick-task-add">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- رسائل النجاح والخطأ -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
