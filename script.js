@@ -10,6 +10,8 @@
 // التخزين المحلي وإدارة البيانات
 // ============================================
 
+const escapeHtml = (value) => TaskFlowSecurity.escapeHtml(value);
+
 const StorageManager = {
     // حفظ البيانات في التخزين المحلي
     save(key, data) {
@@ -141,9 +143,9 @@ const NotificationManager = {
                     <i class="fas fa-${this.getIcon(notification.type)}"></i>
                 </div>
                 <div class="notification-content">
-                    <h5>${notification.title}</h5>
-                    <p>${notification.message}</p>
-                    <span class="notification-time">${notification.time}</span>
+                    <h5>${escapeHtml(notification.title)}</h5>
+                    <p>${escapeHtml(notification.message)}</p>
+                    <span class="notification-time">${escapeHtml(notification.time)}</span>
                 </div>
             </div>
         `).join('');
@@ -271,17 +273,17 @@ const ProjectManager = {
         
         if (select) {
             select.innerHTML = '<option value="all">جميع المشاريع</option>' +
-                this.projects.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
+                this.projects.map(p => `<option value="${p.id}">${escapeHtml(p.name)}</option>`).join('');
         }
         
         if (taskProjectSelect) {
             taskProjectSelect.innerHTML = '<option value="">اختر المشروع</option>' +
-                this.projects.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
+                this.projects.map(p => `<option value="${p.id}">${escapeHtml(p.name)}</option>`).join('');
         }
         
         if (kanbanFilter) {
             kanbanFilter.innerHTML = '<option value="all">جميع المشاريع</option>' +
-                this.projects.map(p => `<option value="${p.id}">${p.name}</option>`).join('');
+                this.projects.map(p => `<option value="${p.id}">${escapeHtml(p.name)}</option>`).join('');
         }
     },
     
@@ -318,8 +320,8 @@ const ProjectManager = {
                         </div>
                     </div>
                     <div class="project-body">
-                        <h3 class="project-title">${project.name}</h3>
-                        <p class="project-description">${project.description || 'لا يوجد وصف'}</p>
+                        <h3 class="project-title">${escapeHtml(project.name)}</h3>
+                        <p class="project-description">${escapeHtml(project.description || 'لا يوجد وصف')}</p>
                         <div class="project-meta">
                             <div class="project-progress">
                                 <div class="project-progress-bar">
@@ -544,8 +546,8 @@ const TaskManager = {
                 <div class="task-checkbox" onclick="TaskManager.toggleComplete(${task.id})">
                     ${task.status === 'completed' ? '<i class="fas fa-check"></i>' : ''}
                 </div>
-                <div class="task-row-title">${task.title}</div>
-                <div class="task-project">${ProjectManager.getProjectName(task.projectId)}</div>
+                <div class="task-row-title">${escapeHtml(task.title)}</div>
+                <div class="task-project">${escapeHtml(ProjectManager.getProjectName(task.projectId))}</div>
                 <div class="task-priority">
                     <span class="task-priority-badge ${task.priority}">
                         ${this.getPriorityLabel(task.priority)}
@@ -590,9 +592,9 @@ const TaskManager = {
             
             columns[status].innerHTML = statusTasks.map(task => `
                 <div class="kanban-card" draggable="true" data-id="${task.id}">
-                    <div class="kanban-card-title">${task.title}</div>
+                    <div class="kanban-card-title">${escapeHtml(task.title)}</div>
                     <div class="kanban-card-meta">
-                        <span class="kanban-card-project">${ProjectManager.getProjectName(task.projectId)}</span>
+                        <span class="kanban-card-project">${escapeHtml(ProjectManager.getProjectName(task.projectId))}</span>
                         <span class="task-priority-badge ${task.priority}">
                             ${this.getPriorityLabel(task.priority)}
                         </span>
@@ -696,7 +698,7 @@ const TaskManager = {
                     <div class="task-checkbox" onclick="event.stopPropagation(); TaskManager.toggleComplete(${task.id})">
                         ${task.status === 'completed' ? '<i class="fas fa-check"></i>' : ''}
                     </div>
-                    <span class="task-text">${task.title}</span>
+                    <span class="task-text">${escapeHtml(task.title)}</span>
                     <span class="task-priority-badge ${task.priority}">
                         ${this.getPriorityLabel(task.priority)}
                     </span>
@@ -715,7 +717,7 @@ const TaskManager = {
                     <div class="task-checkbox" onclick="event.stopPropagation(); TaskManager.toggleComplete(${task.id})">
                         ${task.status === 'completed' ? '<i class="fas fa-check"></i>' : ''}
                     </div>
-                    <span class="task-text">${task.title}</span>
+                    <span class="task-text">${escapeHtml(task.title)}</span>
                 </li>
             `).join('') : '<li style="text-align: center; color: var(--text-muted); padding: 20px;">لا توجد مهام اليوم</li>';
         }
@@ -774,8 +776,8 @@ const TaskManager = {
                     <div class="calendar-day-number">${day}</div>
                     <div class="calendar-tasks">
                         ${dayTasks.slice(0, 2).map(task => `
-                            <div class="calendar-task ${task.status} ${task.priority}" title="${task.title}">
-                                ${task.title}
+                            <div class="calendar-task ${task.status} ${task.priority}" title="${escapeHtml(task.title)}">
+                                ${escapeHtml(task.title)}
                             </div>
                         `).join('')}
                         ${dayTasks.length > 2 ? `<div class="calendar-task" style="background: var(--bg-tertiary);">+${dayTasks.length - 2} أخرى</div>` : ''}
@@ -834,18 +836,18 @@ const TaskManager = {
         const content = document.getElementById('task-details-content');
         content.innerHTML = `
             <div class="task-detail-header">
-                <h2 class="task-detail-title">${task.title}</h2>
+                <h2 class="task-detail-title">${escapeHtml(task.title)}</h2>
                 <span class="task-priority-badge ${task.priority}">${this.getPriorityLabel(task.priority)}</span>
             </div>
             <div class="task-detail-meta">
-                <span><i class="fas fa-project-diagram"></i> ${ProjectManager.getProjectName(task.projectId)}</span>
+                <span><i class="fas fa-project-diagram"></i> ${escapeHtml(ProjectManager.getProjectName(task.projectId))}</span>
                 <span><i class="fas fa-flag"></i> ${this.getPriorityLabel(task.priority)}</span>
                 <span><i class="fas fa-calendar"></i> ${this.formatDate(task.dueDate)}</span>
                 <span class="task-priority-badge ${task.status}">${this.getStatusLabel(task.status)}</span>
             </div>
             <div class="task-detail-description">
                 <h4>الوصف</h4>
-                <p>${task.description || 'لا يوجد وصف لهذه المهمة'}</p>
+                <p>${escapeHtml(task.description || 'لا يوجد وصف لهذه المهمة')}</p>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" onclick="ModalManager.close('task-details-modal')">إغلاق</button>
@@ -937,9 +939,9 @@ const TeamManager = {
         
         grid.innerHTML = this.members.map((member, index) => `
             <div class="team-member-card">
-                <img src="${member.avatar}" alt="${member.name}" class="member-avatar">
-                <h3 class="member-name">${member.name}</h3>
-                <p class="member-role">${member.role}</p>
+                <img src="${member.avatar}" alt="${escapeHtml(member.name)}" class="member-avatar">
+                <h3 class="member-name">${escapeHtml(member.name)}</h3>
+                <p class="member-role">${escapeHtml(member.role)}</p>
                 <div class="member-stats">
                     <div class="member-stat">
                         <div class="member-stat-value">${member.tasksCompleted}</div>
@@ -969,7 +971,7 @@ const TeamManager = {
                     ${index + 1}
                 </div>
                 <div class="performer-info">
-                    <div class="performer-name">${member.name}</div>
+                    <div class="performer-name">${escapeHtml(member.name)}</div>
                     <div class="performer-tasks">${member.tasksCompleted} مهمة مكتملة</div>
                 </div>
             </div>
@@ -1051,7 +1053,7 @@ const ToastManager = {
         
         toast.innerHTML = `
             <i class="fas fa-${icons[type]} toast-icon"></i>
-            <span class="toast-message">${message}</span>
+            <span class="toast-message">${escapeHtml(message)}</span>
         `;
         
         container.appendChild(toast);
